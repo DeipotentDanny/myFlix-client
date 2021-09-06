@@ -22744,7 +22744,32 @@ class MainView extends _reactDefault.default.Component {
     constructor(){
         super();
         this.state = {
-            movies: [],
+            movies: [
+                {
+                    "_id": {
+                        "$oid": "610d6f14388fb37c75e1308d"
+                    },
+                    "title": "Iron Man",
+                    "description": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
+                    "imagepath": "ironMan.jpg"
+                },
+                {
+                    "_id": {
+                        "$oid": "610d797d388fb37c75e13095"
+                    },
+                    "title": "The Help",
+                    "description": "Updated Version: An aspiring author during the civil rights movement of the 1960s decides to write a book detailing the African American maids' point of view on the white families for which they work, and the hardships they go through on a daily basis.",
+                    "imagepath": "theHelp.jpg"
+                },
+                {
+                    "_id": {
+                        "$oid": "610d7996388fb37c75e13096"
+                    },
+                    "title": "Shindler's List",
+                    "description": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+                    "imagepath": "schindlersList.jpg"
+                }
+            ],
             selectedMovie: null
         };
     }
@@ -22759,7 +22784,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 27
+                lineNumber: 46
             },
             __self: this,
             children: "The list is empty!"
@@ -22768,17 +22793,17 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 30
+                lineNumber: 49
             },
             __self: this,
-            children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(MovieView, {
+            children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
                 movie: selectedMovie,
                 onBackClick: (newSelectedMovie)=>{
                     this.setSelectedMovie(newSelectedMovie);
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 32
+                    lineNumber: 51
                 },
                 __self: this
             }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -22788,7 +22813,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 34
+                        lineNumber: 53
                     },
                     __self: this
                 }, movie._id)
@@ -22802,7 +22827,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","@parcel/transformer-js/src/esmodule-helpers.js":"91p9q","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"e7BwH","../movie-view/movie-view":"ikZdr"}],"6EiBJ":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"91p9q","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"e7BwH"}],"6EiBJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -22829,7 +22854,7 @@ class MovieCard extends _reactDefault.default.Component {
                 lineNumber: 6
             },
             __self: this,
-            children: movie.Title
+            children: movie.title
         }));
     }
 }
@@ -23024,7 +23049,7 @@ class MovieView extends _reactDefault.default.Component {
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
-                        src: movie.ImagePath,
+                        src: movie.imagepath,
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 11
@@ -23056,7 +23081,7 @@ class MovieView extends _reactDefault.default.Component {
                                 lineNumber: 15
                             },
                             __self: this,
-                            children: movie.Title
+                            children: movie.title
                         })
                     ]
                 }),
@@ -23084,7 +23109,7 @@ class MovieView extends _reactDefault.default.Component {
                                 lineNumber: 19
                             },
                             __self: this,
-                            children: movie.Description
+                            children: movie.description
                         })
                     ]
                 }),
