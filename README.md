@@ -28,7 +28,7 @@ views, and a polished user experience. It is paired with the MyFLixDD external A
 ### Director view
 * Returns data about a director (name, bio, birth year, death year)
 * Displays example movies
-Profile view
+### Profile view
 * Allows users to update their user info (username, password, email, date of birth)
 * Allows existing users to deregister
 * Displays favorite movies
