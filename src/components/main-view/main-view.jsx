@@ -12,21 +12,21 @@ export class MainView extends React.Component {
       movies: [
         {
           "_id": { "$oid": "610d6f14388fb37c75e1308d" },
-          "title": "Iron Man",
-          "description": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
-          "imagepath": "https://myflixdd.herokuapp.com/imgs/ironMan.jpg"
+          "Title": "Iron Man",
+          "Description": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
+          "ImagePath": "https://myflixdd.herokuapp.com/imgs/ironMan.jpg"
         },
         {
           "_id": { "$oid": "610d797d388fb37c75e13095" },
-          "title": "The Help",
-          "description": "Updated Version: An aspiring author during the civil rights movement of the 1960s decides to write a book detailing the African American maids' point of view on the white families for which they work, and the hardships they go through on a daily basis.",
-          "imagepath": "https://myflixdd.herokuapp.com/imgs/theHelp.jpg"
+          "Title": "The Help",
+          "Description": "Updated Version: An aspiring author during the civil rights movement of the 1960s decides to write a book detailing the African American maids' point of view on the white families for which they work, and the hardships they go through on a daily basis.",
+          "ImagePath": "https://myflixdd.herokuapp.com/imgs/theHelp.jpg"
         },
         {
           "_id": { "$oid": "610d7996388fb37c75e13096" },
-          "title": "Shindler's List",
-          "description": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
-          "imagepath": "https://myflixdd.herokuapp.com/imgs/schindlersList.jpg"
+          "Title": "Shindler's List",
+          "Description": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+          "ImagePath": "https://myflixdd.herokuapp.com/imgs/schindlersList.jpg"
         }
       ],
       selectedMovie: null
