@@ -36,3 +36,6 @@ views, and a polished user experience. It is paired with the MyFLixDD external A
 
 ## Tech
 * React
+* React Redux
+* Parcel
+* Bootstrap
