@@ -1,1 +1,15 @@
-{"mappings":"AAAA;EACE;;ACCF;EACE,OAHM","sources":["src/components/movie-view/movie-view.scss","src/index.scss"],"sourcesContent":["img {\r\n  max-width: 150px;\r\n}\r\n","$color: steelblue;\r\n\r\n.my-flix {\r\n  color: $color;\r\n}\r\n"],"names":[],"version":3,"file":"index.c1e31cef.css.map","sourceRoot":"/__parcel_source_root/"}
+{
+  "mappings": "AAAA;EACE;;ACCF;EACE,OAHM",
+  "sources": [
+    "src/components/movie-view/movie-view.scss",
+    "src/index.scss"
+  ],
+  "sourcesContent": [
+    "img {\r\n  max-width: 150px;\r\n}\r\n",
+    "$color: steelblue;\r\n\r\n.my-flix {\r\n  color: $color;\r\n}\r\n"
+  ],
+  "names": [],
+  "version": 3,
+  "file": "index.c1e31cef.css.map",
+  "sourceRoot": "/__parcel_source_root/"
+}
