@@ -1,15 +1,1 @@
-{
-  "mappings": "AAAA;EACE;;ACCF;EACE,OAHM",
-  "sources": [
-    "src/components/movie-view/movie-view.scss",
-    "src/index.scss"
-  ],
-  "sourcesContent": [
-    "img {\r\n  max-width: 150px;\r\n}\r\n",
-    "$color: steelblue;\r\n\r\n.my-flix {\r\n  color: $color;\r\n}\r\n"
-  ],
-  "names": [],
-  "version": 3,
-  "file": "index.c1e31cef.css.map",
-  "sourceRoot": "/__parcel_source_root/"
-}
+{"mappings":"AAYA;EACE,aAVY;EAWZ,YAVW;EAWX,YAVW;EAWX,SAVQ;EAWR,WAVU;EAWV,SARQ;;;ACRV;EACE;;ADSF;EACE,aAVY;EAWZ,YAVW;EAWX,YAVW;EAWX,SAVQ;EAWR,WAVU;EAWV,SARQ;;;AERV;EACE,kBFCW;EEAX,aFMQ;EELR,OFEU;;AGLZ;EACE,OAHM","sources":["src/components/_variables.scss","src/components/movie-view/movie-view.scss","src/components/main-view/main-view.scss","src/index.scss"],"sourcesContent":[null,"@import \"../_variables.scss\";\r\n\r\nimg {\r\n  max-width: 150px;\r\n}\r\n","@import '../variables';\r\n\r\nbody {\r\n  background-color: $blackCoral;\r\n  font-family: $appFont;\r\n  color: $mintCream;\r\n}\r\n","$color: steelblue;\r\n\r\n.my-flix {\r\n  color: $color;\r\n}\r\n"],"names":[],"version":3,"file":"index.c1e31cef.css.map","sourceRoot":"/__parcel_source_root/"}
