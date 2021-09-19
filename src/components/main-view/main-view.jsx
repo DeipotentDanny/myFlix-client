@@ -1,7 +1,9 @@
 import React from 'react';
+import axios from 'axios';
 
+import { RegistrationView } from '../registration-view/registration-view';
+import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
-
 import { MovieView } from '../movie-view/movie-view';
 
 export class MainView extends React.Component {
@@ -9,48 +11,58 @@ export class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [
-        {
-          "_id": { "$oid": "610d6f14388fb37c75e1308d" },
-          "title": "Iron Man",
-          "description": "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
-          "imagepath": "ironMan.jpg"
-        },
-        {
-          "_id": { "$oid": "610d797d388fb37c75e13095" },
-          "title": "The Help",
-          "description": "Updated Version: An aspiring author during the civil rights movement of the 1960s decides to write a book detailing the African American maids' point of view on the white families for which they work, and the hardships they go through on a daily basis.",
-          "imagepath": "theHelp.jpg"
-        },
-        {
-          "_id": { "$oid": "610d7996388fb37c75e13096" },
-          "title": "Shindler's List",
-          "description": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
-          "imagepath": "schindlersList.jpg"
-        }
-      ],
-      selectedMovie: null
+      movies: [],
+      selectedMovie: null,
+      user: null,
+      register: null
     }
   }
 
-  setSelectedMovie(newSelectedMovie) {
+  componentDidMount() {
+    axios.get('https://myflixdd.herokuapp.com/movies')
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  setSelectedMovie(movie) {
     this.setState({
-      selectedMovie: newSelectedMovie
+      selectedMovie: movie
+    });
+  }
+
+  onLoggedIn(user) {
+    this.setState({
+      user
+    });
+  }
+
+  onRegister(register) {
+    this.setState({
+      register
     });
   }
 
   render() {
-    const { movies, selectedMovie } = this.state;
+    const { movies, selectedMovie, user, register } = this.state;
 
+    if (!register) return <RegistrationView onRegister={register => this.onRegister(register)} />;
 
-    if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+
+    if (movies.length === 0) return <div className="main-view" />;
 
     return (
       <div className="main-view">
         {selectedMovie
           ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
           : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
+            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
           ))
         }
       </div>
