@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
@@ -36,6 +37,16 @@ export function RegistrationView(props) {
     </Form>
   );
 }
+
+RegistrationView.propTypes = {
+  register: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    birth_date: PropTypes.string.isRequired,
+  }),
+  onRegistration: PropTypes.func.isRequired,
+};
 
 /* Registration Structure
   username: "ExampleUsername123"
