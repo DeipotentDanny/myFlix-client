@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
@@ -16,25 +18,33 @@ export function RegistrationView(props) {
   };
 
   return (
-    <Form>
-      <Form.Group controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
-      </Form.Group>
-      <Form.Group controlId="formPassword">
-        <Form.Label>Password:</Form.Label>
-        <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
-      </Form.Group>
-      <Form.Group controlId="formEmail">
-        <Form.Label>Email:</Form.Label>
-        <Form.Control type="email" onChange={e => setEmail(e.target.value)} />
-      </Form.Group>
-      <Form.Group controlId="formBirthdate">
-        <Form.Label>Birthdate:</Form.Label>
-        <Form.Control type="date" onChange={e => setBirthDate(e.target.value)} />
-      </Form.Group>
-      <Button type="submit" onClick={handleSubmit}>Register</Button>
-    </Form>
+    <Col xs={12} md={8} lg={6} className="d-flex mx-auto">
+      <Row className="d-flex mx-auto mt-5 justify-content-center">
+        <h2 className="text-center mt-5 text-light">Sign Up!</h2>
+        <h3 className="text-center text-light">Please Fill In All Fields:</h3>
+        <Row>
+          <Form>
+            <Form.Group controlId="formUsername">
+              <Form.Label>Username:</Form.Label>
+              <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formPassword">
+              <Form.Label>Password:</Form.Label>
+              <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control type="email" onChange={e => setEmail(e.target.value)} />
+            </Form.Group>
+            <Form.Group controlId="formBirthdate">
+              <Form.Label>Birthdate:</Form.Label>
+              <Form.Control type="date" onChange={e => setBirthDate(e.target.value)} />
+            </Form.Group>
+            <Button type="submit" onClick={handleSubmit}>Register</Button>
+          </Form>
+        </Row>
+      </Row>
+    </Col>
   );
 }
 
