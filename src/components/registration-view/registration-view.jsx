@@ -18,8 +18,8 @@ export function RegistrationView(props) {
   };
 
   return (
-    <Col xs={12} md={8} lg={6} className="d-flex mx-auto">
-      <Row className="d-flex mx-auto mt-5 justify-content-center">
+    <Row className="d-flex mx-auto mt-5 justify-content-center">
+      <Col xs={12} md={8} lg={6} className="d-flex mx-auto">
         <h2 className="text-center mt-5 text-light">Sign Up!</h2>
         <h3 className="text-center text-light">Please Fill In All Fields:</h3>
         <Row>
@@ -43,8 +43,8 @@ export function RegistrationView(props) {
             <Button type="submit" onClick={handleSubmit}>Register</Button>
           </Form>
         </Row>
-      </Row>
-    </Col>
+      </Col>
+    </Row>
   );
 }
 
