@@ -18,8 +18,8 @@ export function LoginView(props) {
   };
 
   return (
-    <Col xs={12} md={8} lg={6} className="d-flex mx-auto">
-      <Row className="d-flex mx-auto mt-5 justify-content-center">
+    <Row className="d-flex mx-auto mt-5 justify-content-center">
+      <Col xs={12} md={8} lg={6} className="d-flex mx-auto">
         <h2 className="text-center mt-5 text-light">Please Login</h2>
         <Row>
           <Form>
@@ -34,8 +34,8 @@ export function LoginView(props) {
             <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
           </Form>
         </Row>
-      </Row>
-    </Col>
+      </Col>
+    </Row>
   );
 }
 
