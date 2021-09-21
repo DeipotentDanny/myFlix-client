@@ -25865,18 +25865,18 @@ function RegistrationView(props) {
         console.log(username, password, email, birth_date);
         props.onRegister(username);
     };
-    return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-        xs: 12,
-        md: 8,
-        lg: 6,
-        className: "d-flex mx-auto",
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+        className: "d-flex mx-auto mt-5 justify-content-center",
         __source: {
             fileName: "src/components/registration-view/registration-view.jsx",
             lineNumber: 21
         },
         __self: this,
-        children: /*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
-            className: "d-flex mx-auto mt-5 justify-content-center",
+        children: /*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
+            xs: 12,
+            md: 8,
+            lg: 6,
+            className: "d-flex mx-auto",
             __source: {
                 fileName: "src/components/registration-view/registration-view.jsx",
                 lineNumber: 22
@@ -26695,18 +26695,18 @@ function LoginView(props) {
         console.log(username, password);
         /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
     };
-    return(/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-        xs: 12,
-        md: 8,
-        lg: 6,
-        className: "d-flex mx-auto",
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+        className: "d-flex mx-auto mt-5 justify-content-center",
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
             lineNumber: 21
         },
         __self: this,
-        children: /*#__PURE__*/ _jsxRuntime.jsxs(_rowDefault.default, {
-            className: "d-flex mx-auto mt-5 justify-content-center",
+        children: /*#__PURE__*/ _jsxRuntime.jsxs(_colDefault.default, {
+            xs: 12,
+            md: 8,
+            lg: 6,
+            className: "d-flex mx-auto",
             __source: {
                 fileName: "src/components/login-view/login-view.jsx",
                 lineNumber: 22
