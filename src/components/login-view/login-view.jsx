@@ -6,14 +6,14 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 export function LoginView(props) {
-  const [Username, setUsername] = useState('');
-  const [Password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://myflixdd.herokuapp.com/', {
-      Username: Username,
-      Password: Password
+    axios.post('myflixdd.herokuapp.com', {
+      username: username,
+      password: password
     })
       .then(response => {
         const data = response.data;

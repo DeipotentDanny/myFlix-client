@@ -5,15 +5,15 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 export function RegistrationView(props) {
-  const [Username, setUsername] = useState('');
-  const [Password, setPassword] = useState('');
-  const [Email, setEmail] = useState('');
-  const [Birthday, setBirthday] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [birth_date, setBirthDate] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(Username, Password, Email, Birthday);
-    props.onRegister(Username);
+    console.log(username, password, email, birth_date);
+    props.onRegister(username);
   };
 
   return (
