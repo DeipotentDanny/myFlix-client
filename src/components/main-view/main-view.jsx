@@ -15,7 +15,7 @@ import { ProfileView } from '../profile-view/profile-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-// import Button from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
 
 export class MainView extends React.Component {
 
@@ -33,7 +33,7 @@ export class MainView extends React.Component {
       this.setState({
         user: localStorage.getItem('user')
       });
-      this.getUsers(accessToken);
+      // this.getUsers(accessToken);
       this.getMovies(accessToken);
     }
   }
@@ -49,31 +49,31 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
-  // onLoggedOut() {
-  //   localStorage.removeItem('token');
-  //   localStorage.removeItem('user');
-  //   this.setState({
-  //     user: null
-  //   });
-  // }
-
-
-  getUsers(token) {
-    axios.post('https://myflixdd.herokuapp.com/users', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
   }
 
+
+  // getUsers(token) {
+  //   axios.post('https://myflixdd.herokuapp.com/users', {
+  //     headers: { Authorization: `Bearer ${token}` }
+  //   })
+  //     .then(response => {
+  //       this.setState({
+  //         movies: response.data
+  //       });
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }
+
   getMovies(token) {
-    axios.post('https://myflixdd.herokuapp.com/movies', {
+    axios.get('https://myflixdd.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
@@ -99,6 +99,10 @@ export class MainView extends React.Component {
     return (
       <Router>
         <Row className="main-view justify-content-md-center">
+
+          <Col>
+            <Button onClick={() => { this.onLoggedOut() }}>Logout</Button>
+          </Col>
 
           <Route exact path="/" render={() => {
             if (!user) return <Col>
