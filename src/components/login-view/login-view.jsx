@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
+import { Link } from "react-router-dom";
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -20,7 +22,7 @@ export function LoginView(props) {
     e.preventDefault();
     let setisValid = formValidation();
     if (setisValid) {
-      axios.post('https://myflixdd.herokuapp.com', {
+      axios.post('https://myflixdd.herokuapp.com/login', {
         username: username,
         password: password
       })
@@ -85,6 +87,10 @@ export function LoginView(props) {
             </Form.Group>
 
             <Button variant="primary" type="submit" onClick={handleSubmit}>Sign In</Button>
+
+            <Link to={`/register`}>
+              <Button variant="link">Register</Button>
+            </Link>
 
           </Form>
 
