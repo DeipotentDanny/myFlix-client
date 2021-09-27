@@ -23,24 +23,8 @@ export class MainView extends React.Component {
     super();
     this.state = {
       movies: [],
-      // selectedMovie: null,
       user: null,
-      // register: null
     };
-  }
-
-  getMovies(token) {
-    axios.get('https://myflixdd.herokuapp.com/movies', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
   }
 
   componentDidMount() {
@@ -49,6 +33,7 @@ export class MainView extends React.Component {
       this.setState({
         user: localStorage.getItem('user')
       });
+      this.getUsers(accessToken);
       this.getMovies(accessToken);
     }
   }
@@ -72,20 +57,44 @@ export class MainView extends React.Component {
   //   });
   // }
 
-  // onRegister(register) {
-  //   this.setState({
-  //     register
-  //   });
-  // }
 
-  /* setSelectedMovie(movie) {
+  getUsers(token) {
+    axios.post('https://myflixdd.herokuapp.com/users', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  getMovies(token) {
+    axios.post('https://myflixdd.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  onRegister(register) {
     this.setState({
-      selectedMovie: movie
+      register: register,
     });
-  } */
+  }
 
   render() {
-    const { movies, /* selectedMovie, */ user /* , register */ } = this.state;
+    const { movies, user } = this.state;
+    console.log("render", user);
 
     return (
       <Router>
@@ -107,17 +116,16 @@ export class MainView extends React.Component {
             if (user) return <Redirect to='/' />
             return <Col>
               <RegistrationView />
-              {/* <RegistrationView onRegister={register => this.onRegister(register)} /> */}
             </Col>
           }} />
 
-          <Route path="/movies/:movieId" render={({ match, history }) => {
+          <Route path="/movies/:title" render={({ match, history }) => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
+              <MovieView movie={movies.find(m => m.title === match.params.title)} onBackClick={() => history.goBack()} />
             </Col>
           }} />
 
@@ -127,7 +135,7 @@ export class MainView extends React.Component {
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <GenreView genre={movies.find(m => m.genre.Name === match.params.name).genre} onBackClick={() => history.goBack()} />
+              <GenreView genre={movies.find(m => m.genre.name === match.params.name).genre} onBackClick={() => history.goBack()} />
             </Col>
           }} />
 
@@ -137,7 +145,7 @@ export class MainView extends React.Component {
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <DirectorView director={movies.find(m => m.director.Name === match.params.name).director} onBackClick={() => history.goBack()} />
+              <DirectorView director={movies.find(m => m.director.name === match.params.name).director} onBackClick={() => history.goBack()} />
             </Col>
           }} />
 
