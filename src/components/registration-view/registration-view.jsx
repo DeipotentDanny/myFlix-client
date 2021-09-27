@@ -69,7 +69,7 @@ export function RegistrationView(props) {
     setUsernameError(usernameError);
     setPasswordError(passwordError);
     setEmailError(emailError);
-    setBirth_dateError(birthdateError);
+    setBirth_dateError(birth_dateError);
     return isValid;
   };
 
