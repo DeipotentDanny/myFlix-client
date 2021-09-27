@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import axios from 'axios';
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
@@ -12,8 +14,20 @@ export function RegistrationView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, birth_date);
-    props.onRegister(username);
+    axios.post('https://myflixdd.herokuapp.com/', {
+      username: username,
+      password: password,
+      email: email,
+      birth_date: birth_date
+    })
+      .then(response => {
+        const data = response.data;
+        console.log(data);
+        window.open('/', '_self');
+      })
+      .catch(e => {
+        console.log('error registering the user')
+      });
   };
 
   return (
@@ -45,6 +59,16 @@ export function RegistrationView(props) {
       </Col>
     </Row>
   );
+}
+
+RegistrationView.propTypes = {
+  register: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    birth_date: PropTypes.date
+  }),
+  onRegister: PropTypes.func,
 }
 
 /* Registration Structure
