@@ -20,6 +20,22 @@ body {
   mintCream: #ebf5ee;
   appFont: Helvetica, sans-serif;
 }
+:export {
+  raisinBlack: #1d1d28;
+  blackCoral: #4f5564;
+  shadowBlue: #818da0;
+  rubyRed: #a30015;
+  mintCream: #ebf5ee;
+  appFont: Helvetica, sans-serif;
+}
+:export {
+  raisinBlack: #1d1d28;
+  blackCoral: #4f5564;
+  shadowBlue: #818da0;
+  rubyRed: #a30015;
+  mintCream: #ebf5ee;
+  appFont: Helvetica, sans-serif;
+}
 
 img {
   max-width: 150px;
