@@ -58,19 +58,19 @@ export class MainView extends React.Component {
   }
 
 
-  // getUsers(token) {
-  //   axios.post('https://myflixdd.herokuapp.com/users', {
-  //     headers: { Authorization: `Bearer ${token}` }
-  //   })
-  //     .then(response => {
-  //       this.setState({
-  //         movies: response.data
-  //       });
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }
+  getUsers(token) {
+    axios.post('https://myflixdd.herokuapp.com/users', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   getMovies(token) {
     axios.get('https://myflixdd.herokuapp.com/movies', {
