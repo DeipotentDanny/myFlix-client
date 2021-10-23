@@ -1,9 +1,9 @@
 import React from 'react';
 import './movie-view.scss'
 
-import { Link } from "react-router-dom";
-
 import Button from "react-bootstrap/Button";
+
+import { Link } from "react-router-dom";
 
 export class MovieView extends React.Component {
 
