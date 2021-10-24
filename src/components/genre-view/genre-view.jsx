@@ -23,7 +23,7 @@ export class GenreView extends React.Component {
   }
 }
 
-GenreView.PropTypes = {
+GenreView.propTypes = {
   genre: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,

@@ -28,7 +28,7 @@ export class DirectorView extends React.Component {
   }
 }
 
-DirectorView.PropTypes = {
+DirectorView.propTypes = {
   director: PropTypes.shape({
     name: PropTypes.string.isRequired,
     bio: PropTypes.string.isRequired,
