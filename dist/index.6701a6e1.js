@@ -24862,7 +24862,7 @@ RegistrationView.propTypes = {
         username: _propTypesDefault.default.string.isRequired,
         password: _propTypesDefault.default.string.isRequired,
         email: _propTypesDefault.default.string.isRequired,
-        birth_date: _propTypesDefault.default.date
+        birth_date: _propTypesDefault.default.instanceOf(Date)
     })
 }; /* Registration Structure
   username: "ExampleUsername123"
@@ -29667,7 +29667,7 @@ class DirectorView extends _reactDefault.default.Component {
         }));
     }
 }
-DirectorView.PropTypes = {
+DirectorView.propTypes = {
     director: _propTypesDefault.default.shape({
         name: _propTypesDefault.default.string.isRequired,
         bio: _propTypesDefault.default.string.isRequired,
@@ -29770,7 +29770,7 @@ class GenreView extends _reactDefault.default.Component {
         }));
     }
 }
-GenreView.PropTypes = {
+GenreView.propTypes = {
     genre: _propTypesDefault.default.arrayOf(_propTypesDefault.default.shape({
         name: _propTypesDefault.default.string.isRequired,
         description: _propTypesDefault.default.string.isRequired
