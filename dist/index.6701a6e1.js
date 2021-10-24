@@ -29559,7 +29559,7 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 class DirectorView extends _reactDefault.default.Component {
     render() {
-        const { movie , onBackClick  } = this.props;
+        const { director , onBackClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
             className: "director-view",
             __source: {
@@ -29592,7 +29592,7 @@ class DirectorView extends _reactDefault.default.Component {
                                 lineNumber: 15
                             },
                             __self: this,
-                            children: movie.director.name
+                            children: director.name
                         })
                     ]
                 }),
@@ -29620,7 +29620,7 @@ class DirectorView extends _reactDefault.default.Component {
                                 lineNumber: 19
                             },
                             __self: this,
-                            children: movie.director.bio
+                            children: director.bio
                         })
                     ]
                 }),
@@ -29648,7 +29648,7 @@ class DirectorView extends _reactDefault.default.Component {
                                 lineNumber: 23
                             },
                             __self: this,
-                            children: movie.director.birth
+                            children: director.birth
                         })
                     ]
                 }),
@@ -29701,7 +29701,7 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 class GenreView extends _reactDefault.default.Component {
     render() {
-        const { movie , onBackClick  } = this.props;
+        const { genre , onBackClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs("div", {
             className: "genre-view",
             __source: {
@@ -29724,7 +29724,7 @@ class GenreView extends _reactDefault.default.Component {
                             lineNumber: 14
                         },
                         __self: this,
-                        children: movie.genre.name
+                        children: genre.name
                     })
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs("div", {
@@ -29751,7 +29751,7 @@ class GenreView extends _reactDefault.default.Component {
                                 lineNumber: 18
                             },
                             __self: this,
-                            children: movie.genre.description
+                            children: genre.description
                         })
                     ]
                 }),
