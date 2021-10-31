@@ -154,12 +154,15 @@ export class MainView extends React.Component {
           }} />
 
           <Route path="/users/:username" render={({ history }) => {
-            if (!user) return <Redirect to="/" />
-            if (movies.length === 0) return <div className="main-view" />
-            return <Col md={8}>
-              <ProfileView user={user} movies={movies} onBackClick={() => history.goBack()} />
+            if (!user) return <Col>
+              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
-          }} />
+            if (movies.length === 0) return <div className="main-view" />;
+            return <Col md={8}>
+              <ProfileView history={history} movies={movies} />;
+            </Col>
+          }}
+          />
 
         </Row>
       </Router>
