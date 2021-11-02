@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 export class MovieView extends React.Component {
 
   render() {
-    const { movie } = this.props;
+    const { movie, onBackClick } = this.props;
 
     return (
       <div className="movie-view">
