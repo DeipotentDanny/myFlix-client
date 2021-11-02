@@ -115,6 +115,7 @@ export class MainView extends React.Component {
             return movies.map(m => (
               <Col md={3} key={m._id}>
                 <MovieCard movie={m} />
+                <Button variant="secondary">Favorite</Button> {/* placholder */}
               </Col>
             ))
           }} />
