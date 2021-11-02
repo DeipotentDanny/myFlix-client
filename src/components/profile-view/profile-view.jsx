@@ -6,7 +6,7 @@ import './profile-view.scss';
 
 import { MovieCard } from '../movie-card/movie-card';
 
-import { Container, Image, Button, Row, Col, Form } from 'react-bootstrap';
+import { Container, Image, Button, Row, Col, Form, Card, CardGroup } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom'
 
@@ -159,7 +159,7 @@ export class ProfileView extends React.Component {
     });
 
     return (
-      <Container className="profileWrapper">
+      <Container className="profile-view">
         <Container className="d-flex flex-row justify-content-end align-items-baseline">
           <Col>
             <Link to={`/`}>
@@ -167,23 +167,23 @@ export class ProfileView extends React.Component {
             </Link>
           </Col>
         </Container>
-        <div className="profileInformation">
-          <div className="profileContent">
+        <div className="profileInfo">
+          <div className="profileComponent">
             <h3>My Profile</h3>
           </div>
-          <div className="profileContent">
+          <div className="profileComponent">
             <h4>Username:</h4>
             <div>
               <p>{this.state.username}</p>
             </div>
           </div>
-          <div className="profileContent">
+          <div className="profileComponent">
             <h4>Email:</h4>
             <div>
               <p>{this.state.email}</p>
             </div>
           </div>
-          <div className="profileContent">
+          <div className="profileComponent">
             <h4>Birthday:</h4>
             <div>
               <p>{this.state.birth_date}</p>
@@ -232,7 +232,7 @@ export class ProfileView extends React.Component {
                   <Col className="m-2 d-flex flex-column">
                     <div className="d-flex flex-column align-items-center favoriteMovieList">
                       <MovieCard movie={movie} />
-                      <Button className="unfavoriteMovieButton" variant="danger" onClick={() => { this.removeFav(movie._id) }} >Unfavorite</Button>
+                      <Button className="removeFavButton" variant="danger" onClick={() => { this.removeFav(movie._id) }} >Unfavorite</Button>
                     </div>
                   </Col>
                 </Row>
