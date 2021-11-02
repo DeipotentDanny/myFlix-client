@@ -1,24 +1,46 @@
+import axios from 'axios';
 import React from 'react'
+import { Row, Col, Button, Figure } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
 
-function FavoriteMovieList(FavoriteMovies) {
+function FavoriteMovies({ favoriteMovieList }) {
+  const removeFav = (id) => {
+    let token = localStorage.getItem('token');
+    let url = `https://myflixdd.herokuapp.com/users/${localStorage.getItem('user')}/movies/${id}`;
+    axios.delete(url, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+  }
+
   return (
-    <div>
-      <h2>Favorite Movies</h2>
-      {FavoriteMovies.map((movies) => {
-        return (
-          <div key={movies._id}>
-            <img src={movies.imagepath} />
-            <Link to={`/movies/${movies._id}`}>
-              <h4>{movies.title}</h4>
-            </Link>
-            <Button variant="secondary" onClick={() => removeFav(movies._id)}>Remove from Favorites</Button>
-          </div>
-        )
-      })}
-    </div>
+    <>
+      <Row>
+        <Col xs={12}>
+          <h4>Favorite Movies</h4>
+        </Col>
+      </Row>
+      <Row>
+        {favoriteMovieList.map(({ imagepath, title, _id }) => {
+          return (
+            <Col xs={12} md={6} lg={3} key={movies._id}>
+              <Figure>
+                <Link to={`/movies/${movies._id}`}>
+                  <Figure.Image src={movies.imagepath} alt={movies.title} />
+                  <Figure.Caption>
+                    {title}
+                  </Figure.Caption>
+                </Link>
+              </Figure>
+
+              <Button variant="secondary" onClick={() => removeFav(movies._id)}>Remove From Favorites</Button>
+            </Col>
+          )
+        })
+        }
+      </Row>
+    </>
   )
 }
 
-export default FavoriteMovieList
+export default FavoriteMovies
