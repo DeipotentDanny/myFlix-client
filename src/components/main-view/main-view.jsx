@@ -13,9 +13,9 @@ import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
 
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
+import { Row, Col, Button } from 'react-bootstrap';
+
+import { Link } from 'react-router-dom';
 
 export class MainView extends React.Component {
 
@@ -102,6 +102,9 @@ export class MainView extends React.Component {
 
           <Col>
             <Button onClick={() => { this.onLoggedOut() }}>Logout</Button>
+            <Link to={`/users/:username`}>
+              <Button variant="Primary">Profile</Button>
+            </Link>
           </Col>
 
           <Route exact path="/" render={() => {
@@ -159,7 +162,7 @@ export class MainView extends React.Component {
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <ProfileView history={history} movies={movies} />;
+              <ProfileView history={history} movies={movies} onBackClick={() => history.goBack()} />;
             </Col>
           }}
           />
