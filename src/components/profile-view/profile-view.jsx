@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 
 import './profile-view.scss';
 
@@ -195,16 +194,16 @@ export class ProfileView extends React.Component {
           <Form className="formDisplay" onSubmit={(e) => this.updateUser(e)}>
             <Form.Group>
               Username:
-              <Form.Control type='text' name="Username" placeholder="New Username" onChange={(e) => this.setUsername(e.target.value)} required />
+              <Form.Control type='text' name="Username" placeholder="New Username" onChange={(e) => this.setUsername(e.target.value)} />
             </Form.Group>
             <Form.Group>
               Password:
-              <Form.Control type='password' name="Password" placeholder="New Password" onChange={(e) => this.setPassword(e.target.value)} required />
+              <Form.Control type='password' name="Password" placeholder="New Password" onChange={(e) => this.setPassword(e.target.value)} />
 
             </Form.Group>
             <Form.Group>
               Email Address:
-              <Form.Control type='email' name="Email" placeholder="New Email" onChange={(e) => this.setEmail(e.target.value)} required />
+              <Form.Control type='email' name="Email" placeholder="New Email" onChange={(e) => this.setEmail(e.target.value)} />
 
             </Form.Group>
             <Form.Group>
@@ -244,12 +243,3 @@ export class ProfileView extends React.Component {
     );
   }
 }
-
-ProfileView.propTypes = {
-  profile: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    password: PropTypes.string.isRequired,
-    email: PropTypes.string.isRequired,
-    birth_date: PropTypes.string.isRequired
-  })
-};
