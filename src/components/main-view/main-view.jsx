@@ -59,12 +59,12 @@ export class MainView extends React.Component {
 
 
   getUsers(token) {
-    axios.post('https://myflixdd.herokuapp.com/users', {
+    axios.get('https://myflixdd.herokuapp.com/users', {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
         this.setState({
-          movies: response.data
+          users: response.data
         });
       })
       .catch(function (error) {
@@ -92,6 +92,22 @@ export class MainView extends React.Component {
     });
   }
 
+  addFav(id) {
+    const username = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+
+    axios.post(`https://myflixdd.herokuapp.com/users/${username}/Favorites/${id}`, {}, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then((response) => {
+        console.log(response);
+        this.componentDidMount();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     const { movies, user } = this.state;
     console.log("render", user);
@@ -115,7 +131,7 @@ export class MainView extends React.Component {
             return movies.map(m => (
               <Col md={3} key={m._id}>
                 <MovieCard movie={m} />
-                <Button variant="secondary">Favorite</Button> {/* placholder */}
+                <Button variant="secondary" onClick={() => this.addFav(m._id)}>Favorite</Button>
               </Col>
             ))
           }} />
